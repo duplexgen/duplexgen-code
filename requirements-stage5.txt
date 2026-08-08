@@ -1,0 +1,27 @@
+# DuplexGen Stage 5 (TTS rendering) — install into a SEPARATE Python 3.11
+# environment from requirements.txt.
+#
+# The vendored Chatterbox package pins transformers==4.46.3 and
+# requires-python >=3.11,<3.12. Stage 3 needs transformers>=4.53. The two
+# cannot coexist, so they get one environment each.
+#
+#   python3.11 -m venv .venv-tts
+#   .venv-tts/bin/pip install -r requirements-stage5.txt
+#   .venv-tts/bin/pip install -e duplexgen/tts/chatterbox
+#
+# Direct imports of tts_render/convert_spoken.py, on top of what the vendored
+# chatterbox package installs itself. transformers is deliberately absent here:
+# duplexgen/tts/chatterbox/pyproject.toml owns that pin.
+
+torchaudio>=2.6,<3
+nltk>=3.8
+silero-vad>=6.2.1
+whisperx>=3.3.1
+nemo-text-processing>=1.1.0
+
+# Upper-bounded on purpose. Under NumPy 2 (NEP 50) the vendored Chatterbox's
+# norm_loudness() upcasts its float32 waveform to float64 via an np.float64
+# gain scalar, which no longer matches the s3tokenizer's float32 mel-filter
+# buffer -- Stage 5 then dies with "expected scalar type Double but found
+# Float". NumPy 1.x's value-based casting kept float32.
+numpy<2

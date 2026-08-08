@@ -1,0 +1,31 @@
+# Exact versions the Stage 1-4 environment was last validated against.
+# Usage:  pip install -r requirements.txt -c constraints.txt
+#
+# Stage 5 is deliberately NOT covered here. Its versions are owned by
+# duplexgen/tts/chatterbox/pyproject.toml, which pins torch, torchaudio and
+# transformers to values that contradict the ones below -- that contradiction
+# is exactly why the two environments are separate. The one bound this repo
+# adds for Stage 5 lives in requirements-stage5.txt.
+# Regenerate by re-running the snippet in README's Setup section.
+#
+# `bitsandbytes` is pinned to the version the released Stage 3 predictor was
+# trained under rather than to this environment's freeze; its wheels are
+# CUDA-build specific, so relax it if that version has no wheel for your
+# toolkit.
+
+accelerate==1.14.0
+bitsandbytes==0.49.2
+datasets==5.0.1
+matplotlib==3.11.1
+numpy==2.0.2
+openai==2.53.0
+peft==0.20.0
+pillow==12.3.0
+pydantic==2.13.4
+scikit-learn==1.9.0
+scipy==1.17.1
+seaborn==0.13.2
+tensorboard==2.21.0
+torch==2.7.1
+tqdm==4.70.0
+transformers==4.57.6

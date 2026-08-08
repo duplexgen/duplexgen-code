@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying datasets, please cite the paper below."
+type: software
+title: "DuplexGen: Adaptive Synthesis of Human–AI Turn-Taking Dialogues"
+version: "1.0.0"
+license: Apache-2.0
+repository-code: "https://github.com/duplexgen/duplexgen-code"
+url: "https://duplexgen.github.io/"
+authors:
+  - given-names: "Takyoung"
+    family-names: "Kim"
+    affiliation: "University of Illinois Urbana-Champaign"
+  - given-names: "Kang-wook"
+    family-names: "Kim"
+    affiliation: "Seoul National University; University of California, Berkeley"
+  - given-names: "Sang Hoon"
+    family-names: "Woo"
+    affiliation: "Seoul National University; Georgia Institute of Technology"
+  - given-names: "Julia"
+    family-names: "Hirschberg"
+    affiliation: "Columbia University"
+  - given-names: "Gunhee"
+    family-names: "Kim"
+    affiliation: "Seoul National University"
+  - given-names: "Dilek"
+    family-names: "Hakkani-Tür"
+    affiliation: "University of Illinois Urbana-Champaign"
+preferred-citation:
+  type: article
+  title: "DuplexGen: Adaptive Synthesis of Human–AI Turn-Taking Dialogues"
+  year: 2026
+  url: "https://arxiv.org/abs/2607.26178"
+  identifiers:
+    - type: other
+      value: "arXiv:2607.26178"
+      description: "arXiv preprint"
+  authors:
+    - given-names: "Takyoung"
+      family-names: "Kim"
+      affiliation: "University of Illinois Urbana-Champaign"
+    - given-names: "Kang-wook"
+      family-names: "Kim"
+      affiliation: "Seoul National University; University of California, Berkeley"
+    - given-names: "Sang Hoon"
+      family-names: "Woo"
+      affiliation: "Seoul National University; Georgia Institute of Technology"
+    - given-names: "Julia"
+      family-names: "Hirschberg"
+      affiliation: "Columbia University"
+    - given-names: "Gunhee"
+      family-names: "Kim"
+      affiliation: "Seoul National University"
+    - given-names: "Dilek"
+      family-names: "Hakkani-Tür"
+      affiliation: "University of Illinois Urbana-Champaign"

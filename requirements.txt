@@ -1,0 +1,33 @@
+# DuplexGen pipeline dependencies — Stages 1-4 ONLY.
+#
+# Stage 5 (TTS rendering) needs a DIFFERENT environment: it pins
+# transformers==4.46.3 via the vendored Chatterbox package, which is
+# incompatible with the transformers>=4.53 that Stage 3 requires. See
+# requirements-stage5.txt and the Setup section of README.md.
+#
+# Python 3.10+ for this environment.
+
+# Stages 1-4 (src/*, src/synthesis/*): dialogue
+# generation, turn-taking prediction, LLM clients.
+openai>=1.50
+pydantic>=2.5
+tqdm>=4.65
+numpy>=1.24,<3
+datasets>=2.19,<6
+
+# Stage 3 turn-taking predictor training/inference (src/train_turntaking_hf.py,
+# src/inference_turntaking_hf.py).
+torch>=2.6,<3
+transformers>=4.53,<5
+peft>=0.10
+# accelerate backs transformers' Trainer and the device_map="auto" placement in
+# src/inference_turntaking_hf.py; bitsandbytes backs --load_in_4bit, which the
+# training script enables by default.
+accelerate>=0.30
+bitsandbytes>=0.43
+scipy>=1.10
+scikit-learn>=1.3
+tensorboard>=2.15
+matplotlib>=3.8
+seaborn>=0.13
+pillow>=10.0

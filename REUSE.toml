@@ -1,0 +1,33 @@
+version = 1
+SPDX-PackageName = "duplexgen"
+SPDX-PackageSupplier = "DuplexGen authors <https://duplexgen.github.io/>"
+SPDX-PackageDownloadLocation = "https://github.com/duplexgen/duplexgen-code"
+
+# Default: everything in this repository is our own code under Apache-2.0.
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 The DuplexGen authors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Vendored Chatterbox TTS by Resemble AI, MIT. Upstream retains copyright;
+# a trimmed copy lives in-tree so Stage 5 is installable without a submodule.
+[[annotations]]
+path = "duplexgen/tts/chatterbox/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2025 Resemble AI"
+SPDX-License-Identifier = "MIT"
+
+# Bundled LibriSpeech train-clean-100 audio: the 12-speaker user-voice sample
+# and the held-out assistant prompt. CC BY 4.0, Panayotov et al. 2015.
+[[annotations]]
+path = "tts_render/librispeech_samples/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2015 Vassil Panayotov et al. (LibriSpeech)"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "tts_render/prompt_wavs/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2015 Vassil Panayotov et al. (LibriSpeech)"
+SPDX-License-Identifier = "CC-BY-4.0"

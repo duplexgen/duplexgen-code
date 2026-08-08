@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install tooling
+        # Deliberately NOT the full requirements.txt: torch and friends take
+        # ~10 minutes and none of the offline tests need them. openai and tqdm
+        # ARE included: they're small pure-Python installs imported at module
+        # scope by genuine offline tests, unlike the heavy ML stack below.
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt numpy openai tqdm
+
+      - name: Lint (correctness rules only)
+        run: python -m ruff check --select=E9,F .
+
+      - name: Format check
+        run: python -m black --check .
+
+      - name: Tests
+        # Tests that import the heavy Stage 1-4 ML stack (torch, scipy,
+        # sklearn) skip themselves here, since only the lightweight deps are
+        # installed above; they run locally where that environment exists.
+        run: python -m pytest -q

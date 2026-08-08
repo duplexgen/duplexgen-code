@@ -1,0 +1,10 @@
+# Tooling for working on DuplexGen itself — not needed to run the pipeline.
+# Install on top of requirements.txt:
+#
+#   .venv/bin/pip install -r requirements-dev.txt
+#
+# These are exactly the three checks CI gates on (see .github/workflows/ci.yml).
+
+pytest>=8.0
+ruff>=0.5
+black>=24.3

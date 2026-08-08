@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Logs
+*.log
+
+# Environments
+.venv/
+venv/
+.venv-tts/
+
+# Pipeline outputs / local data
+outputs/
+output/
+results/
+data-annotations/
+data-dialogues/
+
+# Generated speech audio (e.g. convert_spoken.py --save_dir audios_chatterbox)
+*.wav
+
+# ...but DO ship the intentional TTS prompt/reference wavs.
+!tts_render/prompt_wavs/
+!tts_render/prompt_wavs/*.wav
+
+# Coverage and build artifacts
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+
+# Corpus downloaded from the Hub (hf download DuplexGen/duplexgen-corpus)
+duplexgen-corpus/
+predictions/
